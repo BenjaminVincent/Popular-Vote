@@ -35,3 +35,14 @@ strawPoll is a good reference
 - GIVEN that I want to view the results, WHEN I visit the admin link, THEN i will see them in BORDA COUNT format.
 - (STRETCH) GIVEN that I have filled out poll form, WHEN I look below there will be a form to enter friends emails, THEN when I submit the poll the access link is sent to those emails.
 
+
+## Routes/API endpoints
+
+- GET ('/') homepage, enter email (redirect to /create-poll)
+- GET ('/create') displays form to create a poll
+- GET ('/vote/:poll_id') displays voting form for a specific poll
+- GET ('/results/:poll_id') display results for a specific poll
+
+- POST ('/') entered email gets saved as admin email
+- POST ('/create') creates poll
+- POST ('/vote/:poll_id')
