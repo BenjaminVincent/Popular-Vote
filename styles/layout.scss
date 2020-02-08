@@ -1,7 +1,7 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #EEE;
+  background-color: #eee;
   display: flex;
   justify-content: center;
 
@@ -14,14 +14,11 @@ body {
     width: 75%;
     height: 12rem;
     margin-top: 8rem;
-    border-radius: .6rem;
+    border-radius: 0.6rem;
 
     #email {
       resize: none;
       width: 100%;
     }
   }
-
 }
-
-

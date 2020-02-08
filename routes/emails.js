@@ -13,6 +13,7 @@ module.exports = db => {
       VALUES ($1);`,
       [email]
     )
+      //to do: redirect to a page
       .then(data => {
         res.json({ data });
       })
@@ -22,15 +23,3 @@ module.exports = db => {
   });
   return router;
 };
-
-// const getAllProperties = function(options, limit = 10) {
-//   return pool
-//     .query(
-//       `
-//   SELECT * FROM properties
-//   LIMIT $1
-//   `,
-//       [limit]
-//     )
-//     .then(res => res.rows);
-// };
