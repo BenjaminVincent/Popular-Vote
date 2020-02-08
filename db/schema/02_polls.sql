@@ -3,5 +3,5 @@ DROP TABLE IF EXISTS polls CASCADE;
 CREATE TABLE polls (
   id SERIAL PRIMARY KEY NOT NULL,
   question TEXT,
-  admin_email VARCHAR(255)
+  admin_email_id INTEGER REFERENCES emails(id) ON DELETE CASCADE
 );

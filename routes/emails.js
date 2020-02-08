@@ -4,7 +4,6 @@ const router = express.Router();
 //post admin email to the db.
 module.exports = db => {
   router.post("/", (req, res) => {
-    // event.preventDefault();
     console.log("req.body.email:", req.body.email);
 
     const email = req.body.email;

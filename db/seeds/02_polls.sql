@@ -1,6 +1,6 @@
 INSERT INTO polls (question, admin_email)
-VALUES ('What movie should we go see?', 'billyjenkins@hotrod.swam');
+VALUES ('What movie should we go see?', 1);
 INSERT INTO polls (question, admin_email)
-VALUES ('Where should we eat dinner?', 'batman@robin.gov');
+VALUES ('Where should we eat dinner?', 2);
 INSERT INTO polls (question, admin_email)
-VALUES ('Which one is my dad?', 'basketballGuy55@hoops.edu');
+VALUES ('Which one is my dad?', 3);

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
+    <title>Poll Page</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/polls.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -16,16 +17,28 @@
     <nav class="navbar">
       <span class="navbar-logo">placeHolder</span>
     </nav>
-    <div id="email-container">
-      Enter your email to begin creating a poll
-      <form id="admin-email" action="/api/emails" method="POST">
+    <div id="poll-container">
+      Ask a question.
+      <form id="poll-question" action="/api/create" method="POST">
         <textarea
-          id="email"
-          name="email"
-          form="admin-email"
-          placeholder="email"
+          name="question"
+          form="poll-question"
+          placeholder="???"
         ></textarea>
-        <input id="submit-email-btn" type="submit" value="submit" />
+        <textarea
+          id="choice1"
+          name="choice1"
+          form="poll-question"
+          placeholder="???"
+        ></textarea>
+        <textarea
+          id="choice2"
+          name="chioice2"
+          form="poll-question"
+          placeholder="???"
+        ></textarea>
+
+        <input id="submit-poll-btn" type="submit" value="submit" />
       </form>
     </div>
   </body>
