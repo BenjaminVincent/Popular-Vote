@@ -12,9 +12,8 @@ module.exports = db => {
       VALUES ($1);`,
       [email]
     )
-      //to do: redirect to a page
-      .then(data => {
-        res.json({ data });
+      .then(() => {
+        res.redirect("/api/polls");
       })
       .catch(err => {
         res.status(500).json({ error: err.message });
