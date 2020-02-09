@@ -5,5 +5,6 @@ module.exports = db => {
   router.get("/", (req, res) => {
     res.render("create-poll");
   });
+
   return router;
 };
