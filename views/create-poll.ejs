@@ -18,22 +18,26 @@
     <% include partials/_navbar %>
 
     <div class="poll-container">
-      Ask a question.
+      <div id="div-ask">Ask a question!</div>
+      <div id ="div-question"></div>
       <form id="poll-question" action="/api/create" method="POST">
         <textarea
           class="question"
+          rows="1"
           name="question"
           form="poll-question"
           placeholder="Question"
         ></textarea>
         <textarea
           class="option"
+          rows="1"
           name="choice1"
           form="poll-question"
           placeholder="Option 1"
         ></textarea>
         <textarea
           class="option"
+          rows="1"
           name="chioice2"
           form="poll-question"
           placeholder="Option 2"
