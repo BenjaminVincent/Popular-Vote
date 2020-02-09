@@ -13,18 +13,13 @@
   </head>
 
   <body>
-    <nav class="navbar">
-      <span class="navbar-logo">placeHolder</span>
-    </nav>
+
+    <% include partials/_navbar %>
+
     <div id="email-container">
       Enter your email to begin creating a poll
       <form id="admin-email" action="/api/emails" method="POST">
-        <textarea
-          id="email"
-          name="email"
-          form="admin-email"
-          placeholder="email"
-        ></textarea>
+        <textarea id="email" name="email" form="admin-email" placeholder="email"></textarea>
         <input id="submit-email-btn" type="submit" value="submit" />
       </form>
     </div>

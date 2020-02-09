@@ -14,9 +14,9 @@
   </head>
 
   <body>
-    <nav class="navbar">
-      <span class="navbar-logo">placeHolder</span>
-    </nav>
+
+    <% include partials/_navbar %>
+
     <div id="poll-container">
       Ask a question.
       <form id="poll-question" action="/api/create" method="POST">
