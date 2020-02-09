@@ -3,21 +3,21 @@
 .poll-container {
   @extend .email-container;
   border: 4rem;
+  justify-content: none;
 
 
   .question {
     @extend .email;
     display: flex;
+    border-radius: .6;
   }
 
   .option {
     @extend .email;
     display: flex;
-    justify-content: center;
+    border-radius: .6;
   }
 }
-
-
 
 #div-question {
   display: flex;
