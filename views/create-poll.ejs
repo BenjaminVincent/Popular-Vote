@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Poll Page</title>
+    <title>Create Poll</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -17,28 +17,29 @@
 
     <% include partials/_navbar %>
 
-    <div id="poll-container">
+    <div class="poll-container">
       Ask a question.
       <form id="poll-question" action="/api/create" method="POST">
         <textarea
+          class="question"
           name="question"
           form="poll-question"
-          placeholder="???"
+          placeholder="Question"
         ></textarea>
         <textarea
-          id="choice1"
+          class="option"
           name="choice1"
           form="poll-question"
-          placeholder="???"
+          placeholder="Option 1"
         ></textarea>
         <textarea
-          id="choice2"
+          class="option"
           name="chioice2"
           form="poll-question"
-          placeholder="???"
+          placeholder="Option 2"
         ></textarea>
 
-        <input id="submit-poll-btn" type="submit" value="submit" />
+        <input id="submit-poll-btn" type="submit" value="submit"/>
       </form>
     </div>
   </body>

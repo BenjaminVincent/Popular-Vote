@@ -1,8 +1,19 @@
-#poll-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: green;
-  width: 90%;
-  height: 20rem;
+@import 'layout.scss';
+
+.poll-container {
+  @extend .email-container;
+
+  .question {
+    @extend .email;
+    display: flex;
+  }
+
+  .option {
+    @extend .email;
+    display: flex;
+    justify-content: center;
+  }
+
+
 }
+
