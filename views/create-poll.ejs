@@ -19,8 +19,7 @@
 
     <div class="poll-container">
       <div id="div-ask">Ask a question!</div>
-      <div id ="div-question"></div>
-      <form id="poll-question" action="/api/create" method="POST">
+      <form id="poll-question" action="/api/polls" method="POST">
         <textarea
           class="question"
           rows="1"
@@ -28,6 +27,7 @@
           form="poll-question"
           placeholder="Question"
         ></textarea>
+        <div id ="div-question"></div>
         <textarea
           class="option"
           rows="1"
@@ -38,7 +38,7 @@
         <textarea
           class="option"
           rows="1"
-          name="chioice2"
+          name="choice2"
           form="poll-question"
           placeholder="Option 2"
         ></textarea>
