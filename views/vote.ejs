@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Create Poll</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/polls.css" type="text/css" />
+<head>
+  <title>Create Poll</title>
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/polls.css" type="text/css" />
 
-  <body>
+</head>
 
-    <% include partials/_navbar %>
+<body>
 
-    <div class="poll-container">
-      <div id="div-ask">Vote</div>
-      <form id="poll-question" action="/api/vote" method="POST">
+  <% include partials/_navbar %>
 
-        <input id="submit-poll-btn" type="submit" value="submit"/>
-      </form>
-    </div>
-  </body>
+  <div class="poll-container">
+    <div id="div-ask">Vote</div>
+
+    <form id="poll-question" action="/api/vote" method="POST">
+
+      <input id="submit-poll-btn" type="submit" value="submit" />
+    </form>
+  </div>
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/helpers.js"></script>
+  <script type="text/javascript" src="/scripts/vote-client.js"></script>
+
+</body>
+
 </html>

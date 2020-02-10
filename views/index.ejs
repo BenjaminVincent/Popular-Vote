@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
+<head>
+  <title>Home Page</title>
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
 
-  <body>
 
-    <% include partials/_navbar %>
+</head>
 
-    <div class="email-container">
-      Enter your email to begin creating a poll
-      <form id="admin-email" action="/api/emails" method="POST">
-        <textarea class="email" name="email" form="admin-email" placeholder="email"></textarea>
-        <input id="submit-email-btn" type="submit" value="submit" />
-      </form>
-    </div>
-  </body>
+<body>
+
+  <% include partials/_navbar %>
+
+  <div class="email-container">
+    Enter your email to begin creating a poll
+    <form id="admin-email" action="/api/emails" method="POST">
+      <textarea class="email" name="email" form="admin-email" placeholder="email"></textarea>
+      <input id="submit-email-btn" type="submit" value="submit" />
+    </form>
+  </div>
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/vote.js"></script>
+</body>
+
 </html>
