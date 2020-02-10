@@ -7,16 +7,8 @@ module.exports = db => {
   });
 
   router.post("/", (req, res) => {
-
-    console.log("Inside post-polls----------");
-    console.log("req.body.question:", req.body.question);
-    console.log("req.body.option1:", req.body.choice1);
-    console.log("req.body.option2:", req.body.choice2);
-    console.log("Inside post-polls----------");
-
     const question = req.body.question;
     const choice1 = req.body.choice1;
-    const choice2 = req.body.choice2;
     db.query(`
       INSERT INTO polls (question, email_id)
       VALUES ($1, (SELECT MAX(id) FROM emails));
