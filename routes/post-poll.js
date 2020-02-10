@@ -4,7 +4,7 @@ const router = express.Router();
 module.exports = db => {
   router.post("/", (req, res) => {
     console.log("req.body.question:", req.body.question);
-
+    console.log("Inside post-polls----------");
     const question = req.body.question;
     // db.query(
     //   `INSERT INTO polls (question, email_id)
