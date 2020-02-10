@@ -6,5 +6,31 @@ module.exports = db => {
     res.render("create-poll");
   });
 
+  router.post("/", (req, res) => {
+
+    console.log("Inside post-polls----------");
+    console.log("req.body.question:", req.body.question);
+    console.log("req.body.option1:", req.body.choice1);
+    console.log("req.body.option2:", req.body.choice2);
+    console.log("Inside post-polls----------");
+
+    const question = req.body.question;
+    const choice1 = req.body.choice1;
+    const choice2 = req.body.choice2;
+    db.query(`
+      INSERT INTO polls (question, email_id)
+      VALUES ($1, (SELECT MAX(id) FROM emails));
+      `, [question])
+    db.query(`
+      INSERT INTO choices (poll_id, title, description)
+      VALUES ((SELECT MAX(id) FROM polls), $1, 'temp');
+    `, [choice1])
+      .then(() => {
+        res.redirect("/api/vote");
+      })
+      .catch(err => {
+        res.status(500).json({ error: err.message });
+      });
+  });
   return router;
 };

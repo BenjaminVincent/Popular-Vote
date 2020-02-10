@@ -41,7 +41,7 @@ app.use(express.static("public"));
 // const widgetsRoutes = require("./routes/widgets");
 const emails = require("./routes/emails");
 const createPoll = require("./routes/polls");
-const postPoll = require("./routes/post-poll");
+// const postPoll = require("./routes/post-poll");
 const vote = require("./routes/vote");
 
 // Mount all resource routes
@@ -50,7 +50,7 @@ const vote = require("./routes/vote");
 // app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/emails", emails(db));
 app.use("/api/polls", createPoll(db));
-app.use("/api/post-poll", postPoll(db)); // probably not needed
+// app.use("/api/post-poll", postPoll(db)); // probably not needed
 app.use("/api/vote", vote(db));
 
 // Note: mount other resources here, using the same pattern above
