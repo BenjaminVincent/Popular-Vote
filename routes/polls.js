@@ -29,14 +29,15 @@ module.exports = db => {
       INSERT INTO choices (poll_id, title, description)
       VALUES ((SELECT MAX(id) FROM polls), $1, 'temp');
       `, [choice[i]])
-        .then(() => {
-          res.redirect("/vote");
-        })
-        .catch(err => {
-          res.status(500).json({ error: err.message });
-        });
-
     }
+
+    db.query(`
+    SELECT vote_url FROM links JOIN polls ON poll_id = polls.id
+    WHERE poll_id = (SELECT id FROM polls ORDER BY id DESC LIMIT 1);
+    `)
+      .then((data) => {
+        res.redirect("/vote/" + data.rows[0].vote_url)
+      });
   });
   return router;
 };

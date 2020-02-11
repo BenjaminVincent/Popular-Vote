@@ -3,28 +3,6 @@ const router = express.Router();
 const queries = require('../db/DBqueries')
 
 module.exports = db => {
-  router.get("/", (req, res) => {
-    let templateVars = {};
-
-    queries.getQuestion()
-      .then(questions => {
-        templateVars.question = questions.question;
-        queries.getChoices()
-          .then(choice => {
-            templateVars.choices = choice;
-            queries.getVoteURL()
-              .then(voteURL => {
-                templateVars.voteURL = voteURL.vote_url;
-              })
-              .then(() => res.render('vote', templateVars));
-          })
-
-      })
-      .catch(err => {
-        throw err;
-      })
-
-  });
 
   router.get("/:vote_url", (req, res) => {
     const link = req.params.vote_url;
@@ -41,6 +19,7 @@ module.exports = db => {
           }
           titles.push(item.title);
         }
+
         templateVars.choices = titles;
       })
       .then(() => res.render('voteFromLink', templateVars));
