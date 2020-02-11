@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Vote Here</title>
+  <title>Vote</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -19,9 +19,10 @@
 
   <div class="poll-container">
     <div id="div-ask"><%= question %></div>
-    <div id="div-choices"> <% for (let i = 0; i < choices.length; i++) { %>
-            <%= choices[i].title %>
-          <% } %>
+    <div id="div-choices">
+      <% for (let i = 0; i < choices.length; i++) { %>
+        <%= choices[i].title %>
+      <% } %>
     </div>
     <form id="poll-question" action="/api/vote" method="POST">
 

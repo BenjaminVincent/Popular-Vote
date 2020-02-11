@@ -8,9 +8,6 @@ module.exports = db => {
 
     let templateVars = {};
 
-
-
-
     queries.getQuestion()
       .then(questions => {
         // console.log('data: ', questions);
