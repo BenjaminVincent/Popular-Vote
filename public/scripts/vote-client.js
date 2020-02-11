@@ -1,4 +1,4 @@
-$(document).ready(displayQuestion('peep'));
+// $(document).ready(displayQuestion('peep'));
 
   // () => {
   // add more calls here

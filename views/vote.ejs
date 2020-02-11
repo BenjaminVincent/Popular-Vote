@@ -17,7 +17,7 @@
   <% include partials/_navbar %>
 
   <div class="poll-container">
-    <div id="div-ask">Vote</div>
+    <div id="div-ask"><%= question %></div>
 
     <form id="poll-question" action="/api/vote" method="POST">
 
