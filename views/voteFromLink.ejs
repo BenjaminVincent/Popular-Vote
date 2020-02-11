@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Vote</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/polls.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/vote.css" type="text/css" />
+
+</head>
+
+<body>
+
+  <% include partials/_navbar %>
+
+  <div class="poll-container">
+    <div id="div-ask"><%= question %></div>
+    <div id="div-choices">
+      <% for (let i = 0; i < choices.length; i++) { %>
+      <div class="choice-list"><%= choices[1] %></div>
+      <% } %>
+    </div>
+    <form id="poll-question" action="/api/vote" method="POST">
+      <input id="submit-poll-btn" type="submit" value="submit" />
+    </form>
+
+    <div class="url-link">
+      <input type="text" value="localhost:8080/api/vote/<%= voteURL %>" id="copy-url">
+      <button id="copy-btn" onclick="copy()">copy URL</button>
+      <script>
+        const copy = () => {
+          let copyText = document.getElementById("copy-url");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+        };
+      </script>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/helpers.js"></script>
+  <script type="text/javascript" src="/scripts/vote-client.js"></script>
+
+</body>
+
+</html>

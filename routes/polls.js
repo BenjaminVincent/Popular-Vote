@@ -28,7 +28,7 @@ module.exports = db => {
       db.query(`
       INSERT INTO choices (poll_id, title, description)
       VALUES ((SELECT MAX(id) FROM polls), $1, 'temp');
-      `,[choice[i]])
+      `, [choice[i]])
         .then(() => {
           res.redirect("/api/vote");
         })

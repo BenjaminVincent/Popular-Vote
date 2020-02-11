@@ -25,5 +25,25 @@ module.exports = db => {
       })
 
   });
+
+  router.get("/:vote_url", (req, res) => {
+    const link = req.params.vote_url;
+    let templateVars = {};
+    let titles = [];
+    queries.getPollByVoteURL(link)
+      .then(pollData => {
+        for (const item of pollData) {
+          if (!templateVars.voteURL) {
+            templateVars.voteURL = item.vote_url;
+          }
+          if (!templateVars.question) {
+            templateVars.question = item.question;
+          }
+          titles.push(item.title);
+        }
+        templateVars.choices = titles;
+      })
+      .then(() => res.render('voteFromLink', templateVars));
+  })
   return router;
 };
