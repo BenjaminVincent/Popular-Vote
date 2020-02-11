@@ -6,9 +6,14 @@ const getQuestion = function () {
 };
 
 const getChoices = function () {
-  return db.query(`SELECT title, description FROM choices JOIN polls ON poll_id = polls.id
-  WHERE poll_id = (SELECT id FROM polls ORDER BY id DESC LIMIT 1)`)
+  return db.query(`SELECT title FROM choices JOIN polls ON poll_id = polls.id
+  WHERE poll_id = (SELECT id FROM polls ORDER BY id DESC LIMIT 1);`)
+    .then(res => {
+      // console.log('res: ', res.rows)
+      return res.rows;
+    })
 }
 
 // console.log('getQuestion: ', getQuestion());
 exports.getQuestion = getQuestion;
+exports.getChoices = getChoices;
