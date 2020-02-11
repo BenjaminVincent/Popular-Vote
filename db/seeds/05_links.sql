@@ -1,6 +1,6 @@
 INSERT INTO links (poll_id, vote_url, result_url)
-VALUES (1, 'nxiwn47f', 'kdienur');
+VALUES (1, 'c4913a82cc1c0f83f6540feb34da5a0e', 'c4913a82cc1c0f83f6540feb34da5a0e');
 INSERT INTO links (poll_id, vote_url, result_url)
-VALUES (2, '89j37dsj', '92m47fbr');
+VALUES (2, 'c4913a82cc1c0f83f6540feb34da5a0e', 'c4913a82cc1c0f83f6540feb34da5a0e');
 INSERT INTO links (poll_id, vote_url, result_url)
-VALUES (3, 'ki292gts', 'o39dj48j');
+VALUES (3, 'c4913a82cc1c0f83f6540feb34da5a0e', 'c4913a82cc1c0f83f6540feb34da5a0e');

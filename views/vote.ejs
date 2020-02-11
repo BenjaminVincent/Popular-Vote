@@ -25,10 +25,21 @@
       <% } %>
     </div>
     <form id="poll-question" action="/api/vote" method="POST">
-
       <input id="submit-poll-btn" type="submit" value="submit" />
-
     </form>
+
+    <div class="url-link">
+      <input type="text" value="localhost:8080/api/vote/<%= voteURL %>" id="copy-url">
+      <button id ="copy-btn" onclick="copy()">copy URL</button>
+      <script>
+        const copy = () => {
+          let copyText = document.getElementById("copy-url");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+        };
+      </script>
+    </div>
   </div>
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>

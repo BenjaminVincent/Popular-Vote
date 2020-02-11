@@ -12,8 +12,13 @@ module.exports = db => {
         queries.getChoices()
         .then(choice => {
           templateVars.choices = choice;
+          queries.getVoteURL()
+          .then(voteURL => {
+            templateVars.voteURL = voteURL.vote_url;
           })
           .then(() => res.render('vote', templateVars));
+          })
+
       })
       .catch(err => {
         throw err;
