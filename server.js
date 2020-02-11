@@ -40,9 +40,9 @@ const vote = require("./routes/vote");
 
 // Mount all resource routes
 
-app.use("/api/emails", emails(db));
-app.use("/api/polls", createPoll(db));
-app.use("/api/vote", vote(db));
+app.use("/emails", emails(db));
+app.use("/polls", createPoll(db));
+app.use("/vote", vote(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!

@@ -30,7 +30,7 @@ module.exports = db => {
       VALUES ((SELECT MAX(id) FROM polls), $1, 'temp');
       `,[choice[i]])
         .then(() => {
-          res.redirect("/api/vote");
+          res.redirect("/vote");
         })
         .catch(err => {
           res.status(500).json({ error: err.message });

@@ -11,7 +11,7 @@ module.exports = db => {
       [email]
     )
       .then(() => {
-        res.redirect("/api/polls");
+        res.redirect("/polls");
       })
       .catch(err => {
         res.status(500).json({ error: err.message });

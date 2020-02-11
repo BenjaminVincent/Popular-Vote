@@ -24,12 +24,12 @@
         <div class="choice-list"><%= choices[i].title %></div>
       <% } %>
     </div>
-    <form id="poll-question" action="/api/vote" method="POST">
+    <form id="poll-question" action="/vote" method="POST">
       <input id="submit-poll-btn" type="submit" value="submit" />
     </form>
 
     <div class="url-link">
-      <input type="text" value="localhost:8080/api/vote/<%= voteURL %>" id="copy-url">
+      <input type="text" value="localhost:8080/vote/<%= voteURL %>" id="copy-url">
       <button id ="copy-btn" onclick="copy()">copy URL</button>
       <script>
         const copy = () => {
