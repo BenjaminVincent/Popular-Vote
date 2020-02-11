@@ -5,15 +5,21 @@ const queries = require('../db/DBqueries')
 module.exports = db => {
   router.get("/", (req, res) => {
     let templateVars = {};
+
     queries.getQuestion()
-      .then(questions => {
+    .then(questions => {
         templateVars.question = questions.question;
         queries.getChoices()
-          .then(choice => {
-            templateVars.choices = choice;
+        .then(choice => {
+          templateVars.choices = choice;
           })
           .then(() => res.render('vote', templateVars));
-      });
+      })
+      .catch(err => {
+        throw err;
+      })
+
   });
+
   return router;
 };
