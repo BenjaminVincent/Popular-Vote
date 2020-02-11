@@ -8,7 +8,7 @@ module.exports = db => {
 
   router.post("/", (req, res) => {
     const question = req.body.question;
-    const choice1 = req.body.choice1;
+    const choice = req.body.choice;
     db.query(
       `
       INSERT INTO polls (question, email_id)
@@ -16,19 +16,25 @@ module.exports = db => {
       `,
       [question]
     )
-    db.query(
-      `
+
+    console.log('choice:', choice);
+
+    for (let i = 0; i < choice.length; i++) {
+      db.query(
+        `
       INSERT INTO choices (poll_id, title, description)
       VALUES ((SELECT MAX(id) FROM polls), $1, 'temp');
     `,
-      [choice1]
-    )
-      .then(() => {
-        res.redirect("/api/vote");
-      })
-      .catch(err => {
-        res.status(500).json({ error: err.message });
-      });
+        [choice[i]]
+      )
+        .then(() => {
+          res.redirect("/api/vote");
+        })
+      // .catch(err => {
+      //   res.status(500).json({ error: err.message });
+      // });
+
+    }
   });
   return router;
 };

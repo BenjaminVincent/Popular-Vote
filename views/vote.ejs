@@ -18,8 +18,10 @@
   <% include partials/_navbar %>
 
   <div class="poll-container">
-    <div id="div-ask">Vote</div>
-
+    <div id="div-ask"><%= question %></div>
+    <div><% for (let i = 0; i < choices.length; i++) { %>
+      <%= choices[i].title %>
+      <% } %></div>
     <form id="poll-question" action="/api/vote" method="POST">
 
       <input id="submit-poll-btn" type="submit" value="submit" />
