@@ -11,5 +11,10 @@ const getChoices = function () {
     .then(res => res.rows);
 };
 
+const generateRandomString = () => {
+  return (Math.random().toString(36) + '00000000000000000').slice(2, 10);
+};
+
 exports.getQuestion = getQuestion;
 exports.getChoices = getChoices;
+exports.generateRandomString = generateRandomString;
