@@ -22,7 +22,7 @@ module.exports = db => {
 
         templateVars.choices = titles;
       })
-      .then(() => res.render('voteFromLink', templateVars));
+      .then(() => res.render('vote', templateVars));
   })
   return router;
 };

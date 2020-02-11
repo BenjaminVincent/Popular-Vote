@@ -21,16 +21,16 @@
     <div id="div-ask"><%= question %></div>
     <div id="div-choices">
       <% for (let i = 0; i < choices.length; i++) { %>
-        <div class="choice-list"><%= choices[i].title %></div>
+      <div class="choice-list"><%= choices[i] %></div>
       <% } %>
     </div>
-    <form id="poll-question" action="/vote" method="POST">
+    <form id="poll-question" action="/api/vote" method="POST">
       <input id="submit-poll-btn" type="submit" value="submit" />
     </form>
 
     <div class="url-link">
-      <input type="text" value="localhost:8080/vote/<%= voteURL %>" id="copy-url">
-      <button id ="copy-btn" onclick="copy()">copy URL</button>
+      <input type="text" value="localhost:8080/api/vote/<%= voteURL %>" id="copy-url">
+      <button id="copy-btn" onclick="copy()">copy URL</button>
       <script>
         const copy = () => {
           let copyText = document.getElementById("copy-url");
@@ -44,7 +44,6 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/helpers.js"></script>
-  <script type="text/javascript" src="/scripts/vote-client.js"></script>
 
 </body>
 
