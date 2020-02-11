@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-//post admin email to the db.
 module.exports = db => {
   router.post("/", (req, res) => {
 

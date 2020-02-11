@@ -31,7 +31,9 @@ const getResultURL = function () {
   .then(res => res.rows[0]);
   };
 
-exports.getQuestion = getQuestion;
-exports.getChoices = getChoices;
-exports.getVoteURL = getVoteURL;
-exports.getResultURL = getResultURL;
+module.exports = {
+  getQuestion,
+  getChoices,
+  getVoteURL,
+  getResultURL
+}
