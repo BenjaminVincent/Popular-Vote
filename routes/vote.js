@@ -7,16 +7,16 @@ module.exports = db => {
     let templateVars = {};
 
     queries.getQuestion()
-    .then(questions => {
+      .then(questions => {
         templateVars.question = questions.question;
         queries.getChoices()
-        .then(choice => {
-          templateVars.choices = choice;
-          queries.getVoteURL()
-          .then(voteURL => {
-            templateVars.voteURL = voteURL.vote_url;
-          })
-          .then(() => res.render('vote', templateVars));
+          .then(choice => {
+            templateVars.choices = choice;
+            queries.getVoteURL()
+              .then(voteURL => {
+                templateVars.voteURL = voteURL.vote_url;
+              })
+              .then(() => res.render('vote', templateVars));
           })
 
       })
@@ -25,6 +25,5 @@ module.exports = db => {
       })
 
   });
-
   return router;
 };
