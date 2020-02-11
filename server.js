@@ -37,12 +37,14 @@ app.use(express.static("public"));
 const emails = require("./routes/emails");
 const createPoll = require("./routes/polls");
 const vote = require("./routes/vote");
+const result = require("./routes/result");
 
 // Mount all resource routes
 
 app.use("/emails", emails(db));
 app.use("/polls", createPoll(db));
 app.use("/vote", vote(db));
+app.use("/result", result(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!
