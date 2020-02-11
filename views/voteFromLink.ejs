@@ -21,7 +21,7 @@
     <div id="div-ask"><%= question %></div>
     <div id="div-choices">
       <% for (let i = 0; i < choices.length; i++) { %>
-      <div class="choice-list"><%= choices[1] %></div>
+      <div class="choice-list"><%= choices[i] %></div>
       <% } %>
     </div>
     <form id="poll-question" action="/api/vote" method="POST">
