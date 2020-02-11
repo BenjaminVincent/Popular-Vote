@@ -17,7 +17,6 @@ module.exports = db => {
       [question]
     )
 
-    console.log('choice:', choice);
 
     for (let i = 0; i < choice.length; i++) {
       db.query(
@@ -30,9 +29,9 @@ module.exports = db => {
         .then(() => {
           res.redirect("/api/vote");
         })
-      // .catch(err => {
-      //   res.status(500).json({ error: err.message });
-      // });
+      .catch(err => {
+        res.status(500).json({ error: err.message });
+      });
 
     }
   });
