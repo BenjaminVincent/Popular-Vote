@@ -4,8 +4,6 @@ $(document).ready(() => {
     return (Math.random().toString(36) + '00000000000000000').slice(2, 10);
   };
 
-  displayQuestion('Which movie do you want to watch?');
-
   // Temp until we get the endpoint figured out
   // The generated random endpoint string needs to go into the db
   let url = `localhost:8080/api/vote/${generateRandomString()}`;
