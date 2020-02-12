@@ -1,3 +1,5 @@
+@import 'layout.scss';
+
 .url-link {
   margin-top: 2rem;
 
@@ -8,4 +10,45 @@
 
 .choice-list {
   display: flex;
+}
+.vote-container {
+  @extend .base-container;
+  height: 20rem;
+
+  #div-ask {
+    @extend .center;
+  }
+
+  #div-choices {
+    @extend .center;
+  }
+
+  #poll-question {
+    @extend .center;
+  }
+
+
+  .container-fluid {
+    display: flex;
+    justify-content: space-evenly;
+
+    .drop-votes {
+      @extend .drag-drop;
+    }
+    .drag-choices {
+      @extend .drag-drop;
+    }
+
+  }
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.drag-drop {
+  height: 12rem;
+  background-color: grey;
+  width: 8rem;
 }

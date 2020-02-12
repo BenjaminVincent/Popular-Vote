@@ -17,16 +17,31 @@
 
   <% include partials/_navbar %>
 
-  <div class="poll-container">
+  <div class="vote-container">
     <div id="div-ask"><%= question %></div>
     <div id="div-choices">
       <% for (let i = 0; i < choices.length; i++) { %>
       <div class="choice-list"><%= choices[i] %><span><%= descriptions[i] %></span></div>
       <% } %>
     </div>
+
+    <div class="container-fluid">
+      <div class="drop-votes" class="panel-body box-container">
+        DROP VOTES
+      </div>
+      <div class="drag-choices" class="panel-body box-container">
+        DRAG CHOICES
+        <% for (let i = 0; i < choices.length; i++) { %>
+          <div itemid="<%= i %>" class="btn btn-default box-item"><%= choices[i] %><span><%= descriptions[i] %></span></div>
+          <% } %>
+      </div>
+    </div>
+
     <form id="poll-question" action="/vote" method="POST">
       <input id="submit-poll-btn" type="submit" value="submit" />
     </form>
+
+
 
     <div class="url-link">
       <input type="text" value="localhost:8080/vote/<%= voteURL %>" id="copy-url">
@@ -43,8 +58,8 @@
   </div>
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script src="/vendor/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="/scripts/helpers.js"></script>
+  <script src="/vendor/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="/scripts/vote-helpers.js"></script>
 
 
 </body>
