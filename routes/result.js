@@ -8,11 +8,20 @@ module.exports = db => {
   });
 
   router.post("/", (req, res) => {
-    console.log('req', req)
-    console.log('req.params: ', req.params)
+
+    // console.log('req.params: ', req.params)
 
 
     res.redirect('/result')
   })
+
+
+  router.get("/ok", (req, res) => {
+    res.send("ok");
+  });
+
+  router.post("/ok", (req, res) => {
+    res.send("ok");
+  });
   return router;
 };
