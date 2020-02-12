@@ -34,11 +34,18 @@ module.exports = db => {
     }
 
     db.query(`
-    SELECT vote_url FROM links JOIN polls ON poll_id = polls.id
+    SELECT vote_url, result_url FROM links JOIN polls ON poll_id = polls.id
     WHERE poll_id = (SELECT id FROM polls ORDER BY id DESC LIMIT 1);
     `)
       .then((data) => {
-        res.redirect("/vote/" + data.rows[0].vote_url)
+        let result_url = data.rows[0].result_url;
+        let vote_url = data.rows[0].vote_url
+        console.log('result_url: ', result_url)
+        console.log('vote_url: ', vote_url)
+
+        //send email to admin based on emial associated with poll which includes result_url.
+
+        res.redirect("/vote/" + vote_url)
       });
   });
   return router;
