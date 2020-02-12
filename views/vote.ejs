@@ -20,37 +20,60 @@
 
   <div class="vote-container">
     <div id="div-ask"><%= question %></div>
+    <form id="voting" action="/result" method="POST">
+      <div class="drag-container">
 
-    <div class="drag-container">
-      <div id="drop-votes" class="box-container">
-        DROP VOTES
-      </div>
-      <div id="drag-choices" class="box-container">
-        DRAG CHOICES
-        <% for (let i = 0; i < choices.length; i++) { %>
-          <div itemid="choice-<%= i %>" class="box-item"><%= choices[i] %><span><%= descriptions[i] %></span></div>
-          <% } %>
-      </div>
-    </div>
-
-    <form id="poll-question" action="/vote" method="POST">
-      <input id="submit-poll-btn" type="submit" value="submit" />
+        <div id="drop-votes" class="box-container">
+          DROP VOTES
+          <!-- <% for (let i = 0; i < choices.length; i++) { %>
+          <input id="drop-here" type="text" name="vote" class="box-item">
+          <% } %> -->
+        </div>
+        <input id="voting" type="submit" value="submit" />
     </form>
-
-
-
-    <div class="url-link">
-      <input type="text" value="localhost:8080/vote/<%= voteURL %>" id="copy-url">
-      <button id="copy-btn" onclick="copy()">copy URL</button>
-      <script>
-        const copy = () => {
-          let copyText = document.getElementById("copy-url");
-          copyText.select();
-          copyText.setSelectionRange(0, 99999)
-          document.execCommand("copy");
-        };
-      </script>
+    <div id="drag-choices" class="box-container">
+      DRAG CHOICES
+      <% for (let i = 0; i < choices.length; i++) { %>
+      <div id="box-<%= i %>" itemid=" choice-<%= i %>" class="box-item" name="votes" value="vote">
+        <%= choices[i] %>
+      </div>
+      <% } %>
     </div>
+  </div>
+
+
+
+
+
+
+
+  <div class="url-link">
+    <input type="text" value="localhost:8080/vote/<%= voteURL %>" id="copy-url">
+    <button id="copy-btn" onclick="copy()">copy URL</button>
+    <script>
+      const copy = () => {
+        let copyText = document.getElementById("copy-url");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+      };
+    </script>
+
+    <script>
+      var input = document.getElementById("drop-here");
+      input.addEventListener('drop', function (event) {
+        event.preventDefault();
+        var textData = event.dataTransfer.getData('text'); // get the dragged value
+        var oldval = event.target.value; // get the old value in the input
+        var newval = oldval + textData; // add it with the value which is dragged upon
+        event.target.value = newval; // change the value with the new value
+      });
+      document.querySelector('[draggable="true"]').addEventListener('dragstart', function (e) {
+        e.dataTransfer.setData('text', e.target.innerHTML);
+      });</script>
+  </div>
+
+
   </div>
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>

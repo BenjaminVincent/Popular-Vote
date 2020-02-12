@@ -3,7 +3,16 @@ const router = express.Router();
 const queries = require('../db/DBqueries')
 
 module.exports = db => {
-  return router.get("/", (req, res) => {
+  router.get("/", (req, res) => {
     res.render('result');
   });
+
+  router.post("/", (req, res) => {
+    console.log('req', req)
+    console.log('req.params: ', req.params)
+
+
+    res.redirect('/result')
+  })
+  return router;
 };

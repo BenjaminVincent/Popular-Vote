@@ -28,12 +28,15 @@
     <div id="div-ask">Ask a question!</div>
     <form id="poll-question" action="/polls" method="POST">
       <textarea class="question" rows="1" name="question" form="poll-question" placeholder="Question"></textarea>
+      <div id='dynamicFields'>
+      </div>
 
-      <span><input id="poll-question" type="submit" value="submit" /></span>
+      <button class="btn btn-success" type="button" onclick="addInputField();">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true">Add Option</span>
+      </button>
+      <input id="poll-question" type="submit" value="submit" />
     </form>
-    <button class="btn btn-success" type="button" onclick="addInputField();">
-      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-    </button>
+
 
     <div class="clear"></div>
   </div>

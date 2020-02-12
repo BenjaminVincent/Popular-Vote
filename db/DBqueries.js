@@ -41,10 +41,24 @@ const getPollByVoteURL = function (voteURL) {
     .then(res => res.rows);
 }
 
+const getResultsByResultURL = function (resultURL) {
+  return db.query(`
+  SELECT SUM(votes.rank) AS total_votes, choices.title FROM votes
+  JOIN choices ON choice_id = choices.id
+  JOIN polls ON choices.poll_id = polls.id
+  JOIN links ON links.poll_id = polls.id
+  WHERE links.result_url = 'c4913a82cc1c0f83f6540feb34da5a0a'
+  GROUP BY choices.title
+  ORDER BY total_votes DESC;
+  `, [resultURL])
+    .then(res => res.rows);
+}
+
 module.exports = {
   getQuestion,
   getChoices,
   getVoteURL,
   getResultURL,
-  getPollByVoteURL
+  getPollByVoteURL,
+  getResultsByResultURL
 }
