@@ -8,9 +8,12 @@ module.exports = db => {
     const link = req.params.vote_url;
     let templateVars = {};
     let titles = [];
+    let descriptions = [];
+
     queries.getPollByVoteURL(link)
       .then(pollData => {
         for (const item of pollData) {
+          // console.log('item:', item)
           if (!templateVars.voteURL) {
             templateVars.voteURL = item.vote_url;
           }
@@ -18,9 +21,11 @@ module.exports = db => {
             templateVars.question = item.question;
           }
           titles.push(item.title);
+          descriptions.push(item.description)
         }
 
         templateVars.choices = titles;
+        templateVars.descriptions = descriptions;
       })
       .then(() => res.render('vote', templateVars));
   })

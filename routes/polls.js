@@ -8,7 +8,9 @@ module.exports = db => {
 
   router.post("/", (req, res) => {
     const question = req.body.question;
-    const choice = req.body.choice;
+    const choices = req.body.choice;
+    const descriptions = req.body.description;
+    console.log('description', descriptions)
 
     db.query(
       `
@@ -24,11 +26,12 @@ module.exports = db => {
     `)
 
 
-    for (let i = 0; i < choice.length; i++) {
+    for (let i = 0; i < choices.length; i++) {
       db.query(`
       INSERT INTO choices (poll_id, title, description)
-      VALUES ((SELECT MAX(id) FROM polls), $1, 'temp');
-      `, [choice[i]])
+      VALUES ((SELECT MAX(id) FROM polls), $1, $2);
+      `, [choices[i], descriptions[i]]
+      )
     }
 
     db.query(`
@@ -36,6 +39,7 @@ module.exports = db => {
     WHERE poll_id = (SELECT id FROM polls ORDER BY id DESC LIMIT 1);
     `)
       .then((data) => {
+
         res.redirect("/vote/" + data.rows[0].vote_url)
       });
   });

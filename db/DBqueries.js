@@ -33,7 +33,7 @@ const getResultURL = function () {
 
 const getPollByVoteURL = function (voteURL) {
   return db.query(`
-  SELECT question, title, vote_url FROM polls
+  SELECT question, title, description, vote_url FROM polls
   JOIN choices ON choices.poll_id = polls.id
   JOIN links ON links.poll_id = polls.id
   WHERE links.vote_url = $1;
