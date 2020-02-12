@@ -1,34 +1,21 @@
 $(document).ready(() => {
-  $('.box-item').draggable({
-    cursor: 'move',
-    helper: "clone",
-    // stop: function (e) {
-    //   let pos = $('#box-1').position().top;
-    //   console.log(pos);
-    //   return pos;
-    // }
-  });
 
-  $("#drop-votes").droppable({
-    drop: function (event, ui) {
-      var itemid = $(event.originalEvent.toElement).attr("itemid");
-      $('.box-item').each(function () {
-        if ($(this).attr("itemid") === itemid) {
-          $(this).appendTo("#drop-votes");
-        }
-      });
-    }
-  });
+  $('#drop-votes').sortable();
+  $('#drop-votes').disableSelection();
 
-  $("#drag-choices").droppable({
-    drop: function (event, ui) {
-      var itemid = $(event.originalEvent.toElement).attr("itemid");
-      $('.box-item').each(function () {
-        if ($(this).attr("itemid") === itemid) {
-          $(this).appendTo("#drop-votes");
-        }
-      });
-    }
-  });
+  $(".box-item").draggable({
+		containment : "#container",
+		helper : 'clone',
+		revert : 'invalid'
+	});
 
+	$("#drop-votes, #drag-choices").droppable({
+		hoverClass : 'ui-state-highlight',
+        accept: ":not(.ui-sortable-helper)",
+		drop : function(ev, ui) {
+			$(ui.draggable).clone().appendTo(this);
+      $(ui.draggable).remove();
+      console.log($( "#drop-votes" ).sortable('toArray'));
+		}
+	});
 });
