@@ -10,9 +10,9 @@ module.exports = db => {
     const question = req.body.question;
     const choices = req.body.choice;
     const descriptions = req.body.description;
-    console.log('description', descriptions);
-    console.log('choices: ', choices);
-    console.log('question: ', question);
+    // console.log('description', descriptions);
+    // console.log('choices: ', choices);
+    // console.log('question: ', question);
 
     db.query(
       `
@@ -41,7 +41,8 @@ module.exports = db => {
     WHERE poll_id = (SELECT id FROM polls ORDER BY id DESC LIMIT 1);
     `)
       .then((data) => {
-        console.log('data', data);
+        // console.log('data', data);
+        // console.log('data.rows: ', data.rows);
         res.redirect("/vote/" + data.rows[0].vote_url)
       });
   });

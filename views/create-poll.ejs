@@ -14,7 +14,7 @@
   <script type="text/javascript" src="/scripts/dynamicFields.js"></script>
 
   <!-- external -->
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
@@ -27,24 +27,15 @@
 
     <div id="div-ask">Ask a question!</div>
     <form id="poll-question" action="/polls" method="POST">
-
       <textarea class="question" rows="1" name="question" form="poll-question" placeholder="Question"></textarea>
-      <div id="extraFields">
 
-      </div>
+      <span><input id="poll-question" type="submit" value="submit" /></span>
+    </form>
+    <button class="btn btn-success" type="button" onclick="addInputField();">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </button>
 
-      <div class="input-group-btn">
-        <button class="btn btn-success" type="button" onclick="addInputField();">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        </button>
-      </div>
-      <input id="submit-poll-btn" type="submit" value="submit" />
-  </div>
-
-
-  </form>
-
-  <div class="clear"></div>
+    <div class="clear"></div>
   </div>
 
 </body>
