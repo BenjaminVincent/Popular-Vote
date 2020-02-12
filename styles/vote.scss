@@ -28,14 +28,14 @@
   }
 
 
-  .container-fluid {
+  .drag-container {
     display: flex;
     justify-content: space-evenly;
 
-    .drop-votes {
+    #drop-votes {
       @extend .drag-drop;
     }
-    .drag-choices {
+    #drag-choices {
       @extend .drag-drop;
     }
 
@@ -51,4 +51,13 @@
   height: 12rem;
   background-color: grey;
   width: 8rem;
+}
+
+.box-item {
+  height: 2rem;
+  width: 7rem;
+  margin: .5rem;
+  background-color: lightslategray;
+  border-radius: .3rem;
+  cursor: pointer;
 }
