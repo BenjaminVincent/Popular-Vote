@@ -11,7 +11,12 @@
   <link rel="stylesheet" href="/styles/polls.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/dynamicFields.js"></script>
+
+  <!-- external -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 
 <body>
@@ -19,19 +24,29 @@
   <% include partials/_navbar %>
 
   <div class="poll-container">
+
     <div id="div-ask">Ask a question!</div>
     <form id="poll-question" action="/polls" method="POST">
+
       <textarea class="question" rows="1" name="question" form="poll-question" placeholder="Question"></textarea>
-      <div id="div-question"></div>
-      <textarea class="option" rows="1" name="choice" form="poll-question" placeholder="Option"></textarea>
-      <textarea class="option" rows="1" name="description" form="poll-question" placeholder="description "></textarea>
+      <div id="extraFields">
 
-      <textarea class="option" rows="1" name="choice" form="poll-question" placeholder="Option"></textarea>
-      <textarea class="option" rows="1" name="description" form="poll-question" placeholder="description"></textarea>
+      </div>
 
+      <div class="input-group-btn">
+        <button class="btn btn-success" type="button" onclick="addInputField();">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+      </div>
       <input id="submit-poll-btn" type="submit" value="submit" />
-    </form>
   </div>
+
+
+  </form>
+
+  <div class="clear"></div>
+  </div>
+
 </body>
 
 </html>
