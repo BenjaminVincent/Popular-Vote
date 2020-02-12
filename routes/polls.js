@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const API_KEY = '1b42e6e8d0670eea11f99904b04f7fe3-2b0eef4c-c5f3bff3';
-const DOMAIN = 'doesitput.com';
-const mailgun = require('mailgun-js')({ apiKey: API_KEY, domain: DOMAIN });
+const mailgunDetails = require('../public/scripts/mailgun')
+const mailgun = require('mailgun-js')({ apiKey: mailgunDetails.API_KEY, domain: mailgunDetails.DOMAIN });
 
 module.exports = db => {
   router.get("/", (req, res) => {
@@ -51,7 +50,6 @@ module.exports = db => {
         console.log('vote_url: ', vote_url)
         console.log('email: ', email);
         //send email to admin based on emial associated with poll which includes result_url.
-
 
         const emailData = {
           from: 'DEV TEAM <maxwrosenthal@gmail.com>',
