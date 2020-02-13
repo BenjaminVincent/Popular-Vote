@@ -43,7 +43,7 @@ const getPollByVoteURL = function (voteURL) {
 
 const getResultsByResultURL = function (resultURL) {
   return db.query(`
-  SELECT SUM(votes.rank) AS total_votes, choices.title FROM votes
+  SELECT SUM(votes.num_votes) AS total_votes, choices.title FROM votes
   JOIN choices ON choice_id = choices.id
   JOIN polls ON choices.poll_id = polls.id
   JOIN links ON links.poll_id = polls.id
@@ -54,12 +54,18 @@ const getResultsByResultURL = function (resultURL) {
     .then(res => res.rows);
 }
 
-const getChoiceIdByChoice = function (choice) {
- return db.query(`
- SELECT id
- FROM choices
- WHERE title = '$1';
- `, [choice])
+const getChoiceIdByChoiceAndVoteURL = function (choice, vote_url) {
+  return db.query(`
+  SELECT choices.id
+  FROM choices
+  JOIN polls ON polls.id = choices.poll_id
+  JOIN links ON links.poll_id = polls.id
+  WHERE title = $1 AND links.vote_url = $2;
+  `, [choice, vote_url])
+    .then(res => {
+      console.log('res', res.rows[0].id)
+      return res.rows[0].id;
+    })
 }
 
 module.exports = {
@@ -69,5 +75,5 @@ module.exports = {
   getResultURL,
   getPollByVoteURL,
   getResultsByResultURL,
-  getChoiceIdByChoice
+  getChoiceIdByChoiceAndVoteURL
 }

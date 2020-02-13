@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const queries = require('../db/DBqueries')
-const mailgunDetails = require('../public/scripts/mailgun')
-const mailgun = require('mailgun-js')({ apiKey: mailgunDetails.API_KEY, domain: mailgunDetails.DOMAIN });
+// const mailgunDetails = require('../public/scripts/mailgun')
+// const mailgun = require('mailgun-js')({ apiKey: mailgunDetails.API_KEY, domain: mailgunDetails.DOMAIN });
 
 
 module.exports = db => {
@@ -11,16 +11,29 @@ module.exports = db => {
   });
 
   router.post("/", (req, res) => {
-    // console.log('req: ',req)
-    let keys = Object.keys(req.body)
-    // console.log(keys);
-    // console.log('length: ', keys.length);
-    // console.log('req.body: ',req.body)
     let choiceObj = req.body;
-    for (const choice in choiceObj){
-      console.log('choice in obj: ', choice);
+    console.log(choiceObj);
+    let vote_url = choiceObj.vote_url;
+    delete choiceObj.vote_url;
+
+
+    for (const choice in choiceObj) {
+      let tempChoice = choiceObj[choice];
+      // console.log("tempChoice: ", tempChoice);
+      queries.getChoiceIdByChoiceAndVoteURL(tempChoice, vote_url)
+        .then(choice_id => {
+          // console.log('choice_id in .then: ', choice_id)
+          return db.query(
+            `
+          INSERT INTO votes (choice_id, num_votes)
+          VALUES ($1, $2);
+          `,
+            [choice_id, choice]
+          )
+        })
+        .catch(err => console.log(err));
     }
-    console.log('req.params: ',req.params)
+    // console.log('req.params: ', req.params)
     res.redirect('/result')
   })
 
