@@ -15,7 +15,6 @@ $(document).ready(() => {
     drop: function (ev, ui) {
       $(ui.draggable).clone().appendTo(this);
       $(ui.draggable).remove();
-      // console.log($( "#drop-votes" ).sortable('toArray'));
     }
   });
 
