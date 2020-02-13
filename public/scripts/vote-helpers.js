@@ -1,34 +1,48 @@
 $(document).ready(() => {
-  $('.box-item').draggable({
-    cursor: 'move',
-    helper: "clone",
-    // stop: function (e) {
-    //   let pos = $('#box-1').position().top;
-    //   console.log(pos);
-    //   return pos;
-    // }
-  });
 
-  $("#drop-votes").droppable({
-    drop: function (event, ui) {
-      var itemid = $(event.originalEvent.toElement).attr("itemid");
-      $('.box-item').each(function () {
-        if ($(this).attr("itemid") === itemid) {
-          $(this).appendTo("#drop-votes");
-        }
-      });
+  $('#drop-votes').sortable();
+  $('#drop-votes').disableSelection();
+
+  $(".box-item").draggable({
+		containment : "#container",
+		helper : 'clone',
+		revert : 'invalid'
+	});
+
+	$("#drop-votes, #drag-choices").droppable({
+		hoverClass : 'ui-state-highlight',
+    accept: ":not(.ui-sortable-helper)",
+		drop : function(ev, ui) {
+			$(ui.draggable).clone().appendTo(this);
+      $(ui.draggable).remove();
+      // console.log($( "#drop-votes" ).sortable('toArray'));
     }
   });
 
-  $("#drag-choices").droppable({
-    drop: function (event, ui) {
-      var itemid = $(event.originalEvent.toElement).attr("itemid");
-      $('.box-item').each(function () {
-        if ($(this).attr("itemid") === itemid) {
-          $(this).appendTo("#drop-votes");
-        }
-      });
-    }
-  });
 
+  $("#voting").submit((event) => {
+    console.log("onSubmit fired");
+   const choiceData = $( "#drop-votes" ).sortable('toArray');
+   console.log('choiceData: ', choiceData)
+  //  const descritionData = $( "#drop-votes" ).sortable('toArray');
+   const data = $('#box-0').text();
+   let choices = {};
+   for (let i = 0; i < choiceData.length; i++) {
+      choices[i] = $(`#${choiceData[i]}`).text().trim();
+   }
+    console.log('choices: ', choices);
+
+    console.log('serialized: ', $(choiceData).serialize());
+    event.preventDefault();
+    $.ajax({
+        url: '/result',
+        type: 'post',
+        dataType: 'json',
+        data: choices,
+        success: function(something) {
+                console.log('data: ', something);
+
+                 }
+    });
+  })
 });
