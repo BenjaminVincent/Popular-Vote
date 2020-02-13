@@ -62,10 +62,7 @@ const getChoiceIdByChoiceAndVoteURL = function (choice, vote_url) {
   JOIN links ON links.poll_id = polls.id
   WHERE title = $1 AND links.vote_url = $2;
   `, [choice, vote_url])
-    .then(res => {
-      console.log('res', res.rows[0].id)
-      return res.rows[0].id;
-    })
+    .then(res => res.rows[0].id)
 }
 
 module.exports = {

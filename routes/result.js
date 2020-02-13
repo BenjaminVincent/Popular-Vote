@@ -12,7 +12,7 @@ module.exports = db => {
 
   router.post("/", (req, res) => {
     let choiceObj = req.body;
-    console.log(choiceObj);
+    // console.log(choiceObj);
     let vote_url = choiceObj.vote_url;
     delete choiceObj.vote_url;
 
@@ -31,10 +31,12 @@ module.exports = db => {
             [choice_id, choice]
           )
         })
+        .then(() => res.redirect('/'))
         .catch(err => console.log(err));
     }
     // console.log('req.params: ', req.params)
-    res.redirect('/result')
+
+
   })
 
 

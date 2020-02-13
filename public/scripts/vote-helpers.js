@@ -1,5 +1,4 @@
 $(document).ready(() => {
-
   $('#drop-votes').sortable();
   $('#drop-votes').disableSelection();
 
@@ -37,5 +36,7 @@ $(document).ready(() => {
       dataType: 'json',
       data: choices
     });
+    $('.vote-container').empty().append('<div class="vote-thanks">PLACEHOLDER IN vote-helpers.js</div>');
   })
+
 });
