@@ -54,11 +54,20 @@ const getResultsByResultURL = function (resultURL) {
     .then(res => res.rows);
 }
 
+const getChoiceIdByChoice = function (choice) {
+ return db.query(`
+ SELECT id
+ FROM choices
+ WHERE title = '$1';
+ `, [choice])
+}
+
 module.exports = {
   getQuestion,
   getChoices,
   getVoteURL,
   getResultURL,
   getPollByVoteURL,
-  getResultsByResultURL
+  getResultsByResultURL,
+  getChoiceIdByChoice
 }

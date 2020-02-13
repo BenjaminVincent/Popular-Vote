@@ -10,9 +10,9 @@ module.exports = db => {
   router.post("/", (req, res) => {
     // console.log('req: ',req)
     let keys = Object.keys(req.body)
-    console.log(keys);
-    console.log('length: ', keys.length);
-    console.log('req.body: ',req.body)
+    // console.log(keys);
+    // console.log('length: ', keys.length);
+    // console.log('req.body: ',req.body)
     let choiceObj = req.body;
     for (const choice in choiceObj){
       console.log('choice in obj: ', choice);
