@@ -1,4 +1,4 @@
-const API_KEY = '1b42e6e8d0670eea11f99904b04f7fe3-2b0eef4c-c5f3bff3';
+const API_KEY = 'key-eb2ebf2fbce7154156eceb2812204262';
 const DOMAIN = 'doesitput.com';
 
 module.exports = {
