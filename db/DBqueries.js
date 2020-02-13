@@ -38,7 +38,10 @@ const getPollByVoteURL = function (voteURL) {
   JOIN links ON links.poll_id = polls.id
   WHERE links.vote_url = $1;
   `, [voteURL])
-    .then(res => res.rows);
+    .then(res => {
+      console.log('res.rows: ', res.rows)
+      return res.rows;
+    })
 }
 
 const getResultsByResultURL = function (resultURL) {
@@ -47,13 +50,15 @@ const getResultsByResultURL = function (resultURL) {
   JOIN choices ON choice_id = choices.id
   JOIN polls ON choices.poll_id = polls.id
   JOIN links ON links.poll_id = polls.id
-  WHERE links.result_url = 'c4913a82cc1c0f83f6540feb34da5a0a'
+  WHERE links.result_url = $1
   GROUP BY choices.title
   ORDER BY total_votes DESC;
   `, [resultURL])
-    .then(res => res.rows);
+    .then(res => {
+      // console.log('res.rows:', res.rows);
+      return res.rows;
+    })
 }
-
 const getChoiceIdByChoiceAndVoteURL = function (choice, vote_url) {
   return db.query(`
   SELECT choices.id

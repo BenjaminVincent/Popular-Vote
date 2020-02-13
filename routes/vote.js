@@ -12,12 +12,14 @@ module.exports = db => {
     queries.getPollByVoteURL(link)
       .then(pollData => {
         for (const item of pollData) {
+          // console.log('item:', item)
           if (!templateVars.voteURL) {
             templateVars.voteURL = item.vote_url;
           }
           if (!templateVars.question) {
             templateVars.question = item.question;
           }
+          // console.log('item.title: ', item.title)
           titles.push(item.title);
           descriptions.push(item.description)
         }

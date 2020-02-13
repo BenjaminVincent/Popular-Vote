@@ -46,9 +46,6 @@ module.exports = db => {
         let result_url = data.rows[0].result_url;
         let vote_url = data.rows[0].vote_url;
         let email = data.rows[0].email;
-        console.log('result_url: ', result_url)
-        console.log('vote_url: ', vote_url)
-        console.log('email: ', email);
         //send email to admin based on emial associated with poll which includes result_url.
 
         const emailData = {

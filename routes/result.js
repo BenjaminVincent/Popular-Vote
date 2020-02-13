@@ -6,8 +6,29 @@ const queries = require('../db/DBqueries')
 
 
 module.exports = db => {
-  router.get("/", (req, res) => {
-    res.render('result');
+  router.get("/:result_url", (req, res) => {
+
+    const link = req.params.result_url;
+    // console.log(link)
+    let templateVars = {};
+    let titles = [];
+    let voteTotal = [];
+    queries.getResultsByResultURL(link)
+      .then(voteData => {
+        // console.log('voteData: ', voteData);
+        // voteData.forEach(el => console.log(el))
+        for (const item of voteData) {
+          titles.push(item.title);
+          voteTotal.push(item.total_votes);
+        }
+        templateVars.choices = titles;
+        templateVars.total_votes = voteTotal;
+        console.log('template: ', templateVars);
+
+      })
+      .then(() => res.render('result', templateVars))
+      .catch(err => console.log(err))
+    // res.render('result');
   });
 
   router.post("/", (req, res) => {
