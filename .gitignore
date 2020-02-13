@@ -1,6 +1,6 @@
 node_modules/
 public/styles
-public/scripts/mailgun.js
+mailgunDetails.js
 .env
 *.log
 *.sqlite3
