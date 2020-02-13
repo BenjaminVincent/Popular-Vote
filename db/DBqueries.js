@@ -39,7 +39,6 @@ const getPollByVoteURL = function (voteURL) {
   WHERE links.vote_url = $1;
   `, [voteURL])
     .then(res => {
-      console.log('res.rows: ', res.rows)
       return res.rows;
     })
 }
@@ -55,7 +54,6 @@ const getResultsByResultURL = function (resultURL) {
   ORDER BY total_votes DESC;
   `, [resultURL])
     .then(res => {
-      // console.log('res.rows:', res.rows);
       return res.rows;
     })
 }
@@ -70,6 +68,17 @@ const getChoiceIdByChoiceAndVoteURL = function (choice, vote_url) {
     .then(res => res.rows[0].id)
 }
 
+const getResultURLAndEmailFromVoteURL = function (vote_url) {
+  return db.query(`
+  SELECT result_url, email
+  FROM emails
+  JOIN polls ON polls.email_id = emails.id
+  JOIN links on links.poll_id = polls.id
+  WHERE links.vote_url = $1
+  `, [vote_url])
+    .then(res => res.rows[0])
+}
+
 module.exports = {
   getQuestion,
   getChoices,
@@ -77,5 +86,6 @@ module.exports = {
   getResultURL,
   getPollByVoteURL,
   getResultsByResultURL,
-  getChoiceIdByChoiceAndVoteURL
+  getChoiceIdByChoiceAndVoteURL,
+  getResultURLAndEmailFromVoteURL
 }

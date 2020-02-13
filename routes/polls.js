@@ -46,18 +46,18 @@ module.exports = db => {
         let result_url = data.rows[0].result_url;
         let vote_url = data.rows[0].vote_url;
         let email = data.rows[0].email;
-        //send email to admin based on emial associated with poll which includes result_url.
 
         const emailData = {
           from: 'DEV TEAM <maxwrosenthal@gmail.com>',
           to: `NEW USER, ${email}`,
           subject: 'Poll Created',
-          // text: `Thanks for creating a new poll! Follow this (public) link to vote on your poll: localhost:8080/vote/${vote_url}. Follow this (private) link to see your results: localhost:8080/results/${result_url}. `,
           html: `<div>Thanks for creating a poll!</div><div>Click <a href="http://localhost:8080/vote/${vote_url}">here</a> to vote on your poll.</div><div>Follow <a href="http://localhost:8080/result/${result_url}">this</a> link to see the results.</div><div>Send this link to your friends so they can vote: localhost:8080/vote/${vote_url}</div>`
         };
 
         mailgun.messages().send(emailData, (error, body) => {
-          console.log(body);
+          //mailgun isn't working...
+          console.log('err', error);
+          console.log('test', body);
         });
 
         res.redirect("/vote/" + vote_url)

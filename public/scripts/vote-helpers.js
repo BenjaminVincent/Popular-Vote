@@ -27,7 +27,6 @@ $(document).ready(() => {
       counter++;
     }
     let $vote_url = $('#grab-url').text();
-    // console.log('vote_url: ', $vote_url);
     event.preventDefault();
     choices.vote_url = $vote_url;
     $.ajax({
