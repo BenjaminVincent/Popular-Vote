@@ -23,21 +23,25 @@ $(document).ready(() => {
   $("#voting").submit((event) => {
     console.log("onSubmit fired");
    const choiceData = $( "#drop-votes" ).sortable('toArray');
+   console.log('choiceData: ', choiceData)
   //  const descritionData = $( "#drop-votes" ).sortable('toArray');
    const data = $('#box-0').text();
    let choices = {};
    for (let i = 0; i < choiceData.length; i++) {
-      choices[i] = $(`#box-${i}`).text().trim();
+      choices[i] = $(`#${choiceData[i]}`).text().trim();
    }
+    console.log('choices: ', choices);
 
+    console.log('serialized: ', $(choiceData).serialize());
     event.preventDefault();
     $.ajax({
-        url: '/result/ok',
+        url: '/result',
         type: 'post',
         dataType: 'json',
-        data: $(choices).serialize(),
-        success: function(data) {
-                console.log(data);
+        data: choices,
+        success: function(something) {
+                console.log('data: ', something);
+
                  }
     });
   })
