@@ -5,8 +5,6 @@ const sendVoteEmail = function (data) {
 
   let adminEmail = data.email;
   let resultURL = data.result_url;
-  console.log('adminEmail: ', adminEmail);
-  console.log('resultURL: ', resultURL);
 
   const emailData = {
     from: 'DEV TEAM <maxwrosenthal@gmail.com>',
@@ -16,8 +14,6 @@ const sendVoteEmail = function (data) {
   };
 
   mailgun.messages().send(emailData, (error, body) => {
-    console.log('just voted emial: ', emailData);
-    //mailgun isn't working...
     if (error) {
       console.log('err2: ', error);
     }

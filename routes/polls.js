@@ -53,15 +53,9 @@ module.exports = db => {
           subject: 'Poll Created',
           text: 'This is a personalied message from the Big Man.',
           html: `<div>Thanks for creating a poll!</div><div>Click <a href="http://localhost:8080/vote/${vote_url}">here</a> to vote on your poll.</div><div>Follow <a href="http://localhost:8080/result/${result_url}">this</a> link to see the results.</div><div>Send this link to your friends so they can vote: localhost:8080/vote/${vote_url}</div>`
-          // "o:testmode": false
         };
 
-        // console.log('api key: ', mailgun.apiKey);
-        // console.log('domain: ', mailgun.domain);
-
         mailgun.messages().send(emailData, (error, body) => {
-          console.log('emailData from poll post: ', emailData);
-          //mailgun isn't working...
           if (error) {
             console.log('err:', error);
           }
@@ -69,7 +63,6 @@ module.exports = db => {
             console.log('body:', body);
           }
         });
-
         res.redirect("/vote/" + vote_url)
       });
   });

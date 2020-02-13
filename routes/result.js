@@ -34,7 +34,6 @@ module.exports = db => {
         emailHelper(data);
       })
       .then(() => {
-        // console.log('choiceObj: ', choiceObj)
         for (const choice in choiceObj) {
           let tempChoice = choiceObj[choice];
           queries.getChoiceIdByChoiceAndVoteURL(tempChoice, vote_url)
@@ -51,9 +50,6 @@ module.exports = db => {
       })
       .then(() => res.redirect('/'))
       .catch(err => console.log('err4: ', err))
-
   });
-
-
   return router;
 }
