@@ -18,7 +18,10 @@
   <% include partials/_navbar %>
 
   <div class="poll-container">
-    <div>Results only visible by admin</div>
+    <% for (let i = 0; i < choices.length; i++) { %>
+    <div><%= choices[i] %> <span><%= total_votes[i] %></span></div>
+    <% } %>
+
     </form>
   </div>
 
