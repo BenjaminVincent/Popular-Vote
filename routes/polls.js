@@ -48,14 +48,14 @@ module.exports = db => {
         let email = data.rows[0].email;
 
         const emailData = {
-          from: 'Donny Bowling <borischadamerica@yahoo.com>',
-          to: `Tim Horton, ${email}`,
+          from: 'DEV TEAM <maxwrosenthal@gmail.com>',
+          to: `NEW USER, ${email}`,
           subject: 'Poll Created',
-          text: 'This is a personalied message from the Big Man.',
           html: `<div>Thanks for creating a poll!</div><div>Click <a href="http://localhost:8080/vote/${vote_url}">here</a> to vote on your poll.</div><div>Follow <a href="http://localhost:8080/result/${result_url}">this</a> link to see the results.</div><div>Send this link to your friends so they can vote: localhost:8080/vote/${vote_url}</div>`
         };
 
         mailgun.messages().send(emailData, (error, body) => {
+          console.log('poll post email data: ', emailData);
           if (error) {
             console.log('err:', error);
           }

@@ -14,6 +14,7 @@ const sendVoteEmail = function (data) {
   };
 
   mailgun.messages().send(emailData, (error, body) => {
+    console.log('voted email data: ', emailData)
     if (error) {
       console.log('err2: ', error);
     }
