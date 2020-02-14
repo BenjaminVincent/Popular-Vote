@@ -1,15 +1,35 @@
 .navbar {
-  background-color: grey;
-  display: flex;
+  background-color: #3D5A80;
   position: fixed;
   top: 0;
   height: 5rem;
   width: 100%;
   z-index: 999;
+  font-family: 'Bungee', cursive;
+  font-family: 'Permanent Marker', cursive;
+
+  .nav-elements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .navbar-logo {
+    display: flex;
     font-size: 2rem;
     margin: 1rem;
+    margin-right: .6rem;
+    color: #E0FBFC;
+  }
+
+  .fa-chart-pie {
+    display: flex;
+    color: #EE6C4D;
+    // justify-content: space-between;
+  }
+
+  .num-logo {
+    color: #98C1D9;
   }
 
 }

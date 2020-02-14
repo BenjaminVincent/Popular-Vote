@@ -6,18 +6,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
 
   .question {
+    @extend .base-form;
+
     resize: none;
     display: flex;
-    border-radius: .6;
+    // border-radius: .6rem;
+    margin-bottom: 1.25rem;
   }
 
   .option {
-    resize: none;
+    @extend .base-form;
+    width: 30.35rem;
     display: flex;
-    border-radius: .6;
+    margin-bottom: 1.25rem;
   }
 }
 
@@ -30,3 +34,28 @@
   height: .2rem;
   border-radius: .6;
 }
+
+
+#choice.form-control {
+  @extend .base-form;
+}
+
+#description.form-control {
+  @extend .base-form;
+}
+
+#dynamicField {
+  margin: 1rem;
+}
+
+#poll-question-btn {
+  @extend .submit-email-btn;
+}
+
+#div-ask {
+  font-family: 'Bungee', cursive;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
+  margin: 1rem;
+}
+

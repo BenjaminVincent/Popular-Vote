@@ -1,20 +1,48 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #eee;
+  background-color: #e9ebee;;
   display: flex;
   justify-content: center;
 
+
   .email-container {
     @extend .base-container;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
 
     .email {
+      margin-right: .5rem;
+      outline: none;
+      width: 20rem;
+      height: 1.5rem;
+      background-color: inherit;
+      overflow: hidden;
       resize: none;
-      width: 100%;
+      border: none;
+      border-bottom: 4px #545149 solid;
+      border-top: 10rem;
+    }
+
+    .home-text {
+      margin: 1rem;
+      text-align: center;
+      font-family: 'Bungee', cursive;
+      font-family: 'Montserrat', sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
+
+    }
+
+    #admin-email {
+      border-radius: .6rem;
+      display: flex;
+      flex-direction: row;
+      font-family: 'Bungee', cursive;
+      font-family: 'Montserrat', sans-serif;
+      font-family: 'Josefin Sans', sans-serif;
     }
   }
 }
@@ -27,7 +55,49 @@ body {
 .base-container {
   background-color: lightgray;
   width: 75%;
-  height: 12rem;
+  height: 89rem;
   margin-top: 8rem;
+  margin-bottom: 8rem;
   border-radius: 0.6rem;
+  background-image: url('yellow-paper.png');
 }
+
+.submit-email-btn {
+  // font-family: 'Bungee', cursive;
+  // font-family: 'Permanent Marker', cursive;
+color: #fff !important;
+font-family: 'Bungee', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Josefin Sans', sans-serif;
+text-decoration: none;
+background: #3D5A80;
+padding: .8rem;
+border-radius: .5rem;
+display: inline-block;
+border: none;
+transition: all 0.2s ease 0s;
+}
+
+.submit-email-btn:hover {
+  background: #434343;
+  transition: all 0.2s ease 0s;
+  cursor: pointer;
+  }
+
+
+  .base-form {
+    font-family: 'Bungee', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-right: .5rem;
+    outline: none;
+    width: 20rem;
+    height: 1.5rem;
+    background-color: lightgray !important;
+    overflow: hidden;
+    resize: none;
+    border: none;
+    border-bottom: 4px #545149 solid;
+    border-top: 10rem;
+  }
+
