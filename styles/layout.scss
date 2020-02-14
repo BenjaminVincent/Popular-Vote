@@ -1,24 +1,30 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #eee;
+  background-color: #e9ebee;;
   display: flex;
   justify-content: center;
 
+
   .email-container {
     @extend .base-container;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
 
     .email {
       resize: none;
-      width: 100%;
+      margin-right: .5rem;
+      border: none;
+      text-decoration: none;
     }
 
-    .admin-email {
+    #admin-email {
       border-radius: .6rem;
+      display: flex;
+      flex-direction: row;
     }
   }
 }
@@ -31,7 +37,33 @@ body {
 .base-container {
   background-color: lightgray;
   width: 75%;
-  height: 12rem;
+  height: 89rem;
   margin-top: 8rem;
+  margin-bottom: 8rem;
   border-radius: 0.6rem;
+  background-image: url('yellow-paper.png');
 }
+
+#submit-email-btn {
+  // font-family: 'Bungee', cursive;
+  // font-family: 'Permanent Marker', cursive;
+color: #fff !important;
+// text-transform: uppercase;
+text-decoration: none;
+background: #3D5A80;
+padding: .8rem;
+border-radius: .5rem;
+display: inline-block;
+border: none;
+transition: all 0.2s ease 0s;
+}
+
+#submit-email-btn:hover {
+  background: #434343;
+  // letter-spacing: 1px;
+  // -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  // -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  // box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.2s ease 0s;
+  cursor: pointer;
+  }
