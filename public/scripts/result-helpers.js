@@ -7,6 +7,8 @@ $(document).ready(() => {
   }
 
   let myChart = document.getElementById("myChart").getContext('2d');
+
+
   let temp = new Chart(myChart, {
     type: 'pie',
     data: {
@@ -25,4 +27,6 @@ $(document).ready(() => {
       }]
     }
   });
+
+  myChart.scale(1, 1);
 });

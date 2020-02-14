@@ -34,7 +34,7 @@ $(document).ready(() => {
       dataType: 'json',
       data: choices
     });
-    $('.vote-container').empty().append('<div class="vote-thanks">PLACEHOLDER IN vote-helpers.js</div>');
+    $('.vote-container').empty().append('<div class="vote-thanks">Thanks for voting! The poll creator has received your submission.</div>');
   })
 
 });
