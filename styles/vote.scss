@@ -61,3 +61,8 @@
   border-radius: .3rem;
   cursor: pointer;
 }
+
+
+#vote-submit {
+  @extend .submit-email-btn;
+}
