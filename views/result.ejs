@@ -24,9 +24,9 @@
     <span class="choice-names"><%= choices[i] %></span>
     <span class="total-votes"><%= total_votes[i] %></span>
     <% } %>
-    <div><canvas id="myChart"></canvas></div>
+    <div><canvas width="600px" height="300px" id="myChart"></canvas></div>
+    <div class="poll-winner">Winner: <%= choices[0] %></div>
   </div>
-
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/helpers.js"></script>

@@ -1,7 +1,11 @@
 @import 'layout.scss';
 
 .url-link {
-  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+  border-bottom: 1rem;
+  // display: flex;
+  // justify-content: center;
 
   .copy-url {
     border-radius: .5rem;
@@ -13,10 +17,14 @@
 }
 .vote-container {
   @extend .base-container;
-  height: 20rem;
+  font-family: 'Bungee', cursive;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
+  // height: 20rem;
 
   #div-ask {
     @extend .center;
+    font-size: 2rem;
   }
 
   #div-choices {
@@ -31,12 +39,20 @@
   .drag-container {
     display: flex;
     justify-content: space-evenly;
+    flex-direction: row;
+    // display: block;
+    word-break: break-word;
+    padding-top: 1rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
 
     #drop-votes {
       @extend .drag-drop;
+      border-radius: .5rem;
     }
     #drag-choices {
       @extend .drag-drop;
+      border-radius: .5rem;
     }
 
   }
@@ -48,13 +64,14 @@
 }
 
 .drag-drop {
-  height: 12rem;
+  height: 100%;
   background-color: grey;
   width: 8rem;
 }
 
 .box-item {
-  height: 2rem;
+  text-align: center;
+  height: 3.5rem;
   width: 7rem;
   margin: .5rem;
   background-color: lightslategray;
@@ -65,4 +82,41 @@
 
 #vote-submit {
   @extend .submit-email-btn;
+}
+
+.vote-thanks {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  font-family: 'Bungee', cursive;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+#grab-url {
+  opacity: 0;
+}
+
+.to-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.choice-names {
+  font-size: .1rem;
+  visibility: hidden;
+}
+.total-votes {
+  font-size: .1rem;
+  visibility: hidden;
+}
+
+
+
+.poll-winner {
+  padding-top: 1rem;
+  font-family: 'Bungee', cursive;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 2.5rem;
 }

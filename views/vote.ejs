@@ -22,15 +22,19 @@
     <div id="div-ask"><%= question %></div>
     <form id="voting" action="/result" method="POST">
       <div class="drag-container">
-
-        <div id="drop-votes" class="box-container">
-          DROP VOTES
+        <div class="to-col">
+          <div class="drop-text">DROP VOTES</div>
+          <div id="drop-votes" class="box-container">
         </div>
-        <input type="hidden" name="test-hidden" id="test-hidden" value="test-data">
-        <input id="vote-submit" type="submit" value="submit" />
+        </div>
+        <span class="submit-vote-btn">
+          <input type="hidden" name="test-hidden" id="test-hidden" value="test-data">
+          <input id="vote-submit" type="submit" value="submit" />
+      </span>
     </form>
-    <div id="drag-choices" class="box-container">
-      DRAG CHOICES
+      <div class="to-col">
+      <div class="drag-text">DRAG CHOICES</div>
+      <div id="drag-choices" class="box-container">
       <% for (let i = 0; i < choices.length; i++) { %>
       <div id="box-<%= i %>" itemid=" choice-<%= i %>" class="box-item" name="votes" value="vote">
         <%= choices[i] %>
@@ -38,6 +42,7 @@
       <% } %>
     </div>
   </div>
+</div>
 
 
   <div class="url-link">
