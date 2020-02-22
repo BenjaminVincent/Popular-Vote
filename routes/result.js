@@ -21,11 +21,7 @@ module.exports = db => {
         }
         templateVars.choices = titles;
         templateVars.total_votes = voteTotal;
-<<<<<<< HEAD
-        console.log("question: ", voteData);
-=======
         templateVars.question = voteData[0].question;
->>>>>>> 5d5ada933db55bd0ff45b7527e2c8b53c46a531c
 
       })
       .then(() => res.render('result', templateVars))
