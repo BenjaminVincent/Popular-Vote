@@ -1,15 +1,16 @@
-LHL Node Skeleton
+Popular Vote
 =========
 
-## Project Setup
+## Project Description
 
-The following steps are only for _one_ of the group members to perform.
+Popular Vote is a full stack web app built with NodeJS and run on an Express server. PostgreSQL is used to update and query the database of emails, questions and votes.  
 
-1. Create your own copy of this repo using the `Use This Template` button, ideally using the name of your project. The repo should be marked Public
-2. Verify that the skeleton code now shows up in your repo on GitHub, you should be automatically redirected
-3. Clone your copy of the repo to your dev machine
-4. Add your team members as collaborators to the project so that they can push to this repo
-5. Let your team members know the repo URL so that they use the same repo (they should _not_ create a copy/fork of this repo since that will add additional workflow complexity to the project)
+!["Enter your email."](home page)
+!["Ask a question and suggest options to vote on with optional description."](poll page)
+!["Drag and drop your votes. Make sure the one you liek the best is at the top and the one you like the least is at the bottom. Then hit submit!"](voted)
+!["Only the admin can view the results."](results)
+
+Images depict the login page (top), where you can submit a link for 'tiny-fying' (middle), as well as your list of saved tiny URLs (bottom).
 
 
 ## Getting Started
@@ -41,3 +42,10 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- Body-parser ^1.19 
+- EJS ^2.6.2
+- Express ^4.17.1
+- mailgun-js ^0.22.0
+- node-sass-middleware ^0.11.0
+- pg ^6.4.2
+- pg-native ^3.0.0

@@ -4,7 +4,8 @@ const router = express.Router();
 module.exports = db => {
   router.post("/", (req, res) => {
 
-    const email = req.body.email;
+    const email = req.body.email[0];
+
     db.query(
       `INSERT INTO emails (email)
       VALUES ($1);`,

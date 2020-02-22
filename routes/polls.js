@@ -43,6 +43,7 @@ module.exports = db => {
     WHERE poll_id = (SELECT id FROM polls ORDER BY id DESC LIMIT 1);
     `)
       .then((data) => {
+        // console.log('submit poll query data: ', data)
         let result_url = data.rows[0].result_url;
         let vote_url = data.rows[0].vote_url;
         let email = data.rows[0].email;
