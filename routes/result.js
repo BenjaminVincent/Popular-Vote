@@ -10,6 +10,7 @@ module.exports = db => {
     let templateVars = {};
     let titles = [];
     let voteTotal = [];
+
     queries.getResultsByResultURL(link)
       .then(voteData => {
         for (const item of voteData) {
@@ -18,6 +19,7 @@ module.exports = db => {
         }
         templateVars.choices = titles;
         templateVars.total_votes = voteTotal;
+        console.log("question: ", voteData);
 
       })
       .then(() => res.render('result', templateVars))
@@ -34,7 +36,6 @@ module.exports = db => {
         emailHelper(data);
       })
       .then(() => {
-        // console.log('choiceObj: ', choiceObj)
         for (const choice in choiceObj) {
           let tempChoice = choiceObj[choice];
           queries.getChoiceIdByChoiceAndVoteURL(tempChoice, vote_url)
