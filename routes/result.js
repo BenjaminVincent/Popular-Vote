@@ -52,9 +52,6 @@ module.exports = db => {
       })
       .then(() => res.redirect('/'))
       .catch(err => console.log('err4: ', err))
-
   });
-
-
   return router;
 }

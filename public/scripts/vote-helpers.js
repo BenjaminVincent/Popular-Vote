@@ -17,7 +17,6 @@ $(document).ready(() => {
     }
   });
 
-
   $("#voting").submit((event) => {
     const choiceData = $("#drop-votes").sortable('toArray');
     let choices = {};
