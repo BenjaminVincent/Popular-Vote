@@ -5,19 +5,22 @@ const emailHelper = require('../email-helper');
 
 module.exports = db => {
   router.get("/:result_url", (req, res) => {
-
+    // console.log('req.params: ', req.params)
     const link = req.params.result_url;
     let templateVars = {};
     let titles = [];
     let voteTotal = [];
     queries.getResultsByResultURL(link)
       .then(voteData => {
+        console.log('voteData: ', voteData)
+
         for (const item of voteData) {
           titles.push(item.title);
           voteTotal.push(item.total_votes);
         }
         templateVars.choices = titles;
         templateVars.total_votes = voteTotal;
+        templateVars.question = voteData[0].question;
 
       })
       .then(() => res.render('result', templateVars))
