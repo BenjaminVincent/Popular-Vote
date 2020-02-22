@@ -45,12 +45,12 @@ const getPollByVoteURL = function (voteURL) {
 
 const getResultsByResultURL = function (resultURL) {
   return db.query(`
-  SELECT SUM(votes.num_votes) AS total_votes, choices.title FROM votes
+  SELECT SUM(votes.num_votes) AS total_votes, choices.title, polls.question FROM votes
   JOIN choices ON choice_id = choices.id
   JOIN polls ON choices.poll_id = polls.id
   JOIN links ON links.poll_id = polls.id
   WHERE links.result_url = $1
-  GROUP BY choices.title
+  GROUP BY choices.title, polls.question
   ORDER BY total_votes DESC;
   `, [resultURL])
     .then(res => {

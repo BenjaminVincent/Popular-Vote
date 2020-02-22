@@ -18,8 +18,9 @@
 
 <body>
 
-   <% include partials/_navbar %> -->
+  <% include partials/_navbar %> -->
   <div class="poll-container">
+    <div class="poll-winner"><%= question %></div>
     <% for (let i = 0; i < choices.length; i++) { %>
     <span class="choice-names"><%= choices[i] %></span>
     <span class="total-votes"><%= total_votes[i] %></span>
